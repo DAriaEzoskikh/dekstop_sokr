@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap');
+
+*{
+font-family: 'Montserrat';
+}
+
+a{
+text-decoration: none;
+transition: color 0.3s ease-in-out;
+}
+
+.nav{
+width: 500px;
+display: flex;
+justify-content: center;
+gap: 25px;
+margin: 50px auto 0px;
+}
+
+a:hover{
+color: #ff0081;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    gap: 20px;
+    box-shadow: -1px 3px 10px #DCDCDC;
+    margin: 100px auto;
+    padding: 35px 100px 70px;
+    border-radius: 10px;
+}
+
+h2{
+ text-align: center;
+}
+
+.input{
+ position: relative;
+ }
+
+label{
+    position: absolute;
+    left: 0;
+    transform-origin: 0 0;
+    transition: transform 0.3s ease-in-out;
+    padding: 8px 10px;
+    opacity: 0.75;
+}
+
+input{
+padding: 7px;
+font-size: 1rem;
+width: 380px;
+border: none;
+border-bottom: 1px solid #5387f0;
+outline: none;
+transition: transform 0.3s ease-in-out;
+}
+
+input:focus + label, input:not(:placeholder-shown)+label{
+    transform: translateY(-1em) scale(0.8);
+    opacity: 0.5;
+}
+
+input:focus{
+border-bottom: 1px solid #4000ff;
+}
+
+button{
+margin: 15px;
+padding: 8px;
+font-size: 1rem;
+border: none;
+border-radius: 3px;
+background-color: #24509A;
+box-shadow: 0 2px 10px rgba(255, 0, 130, 0.5);
+color: white;
+cursor: pointer;
+}

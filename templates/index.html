@@ -5,9 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link type="text/css" href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" />
+<link type="text/css" href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" />
 
     <title>{{title}}</title>
+    <link src="static/css/style.css" rel="stylesheet">
 </head>
 <body>
 <div class="nav">
@@ -16,11 +17,12 @@
     {%endfor%}
 </div>
 <form action="/check" method="POST">
-    <h2>Авторизация</h2>
+    <h2>Введите ссылку</h2>
     <div class="input">
     <input name="login" type="text" placeholder=" " id="login"> <label for="login">Введите логин</label></div>
     <div class="input">
     <input name="password" type="password" placeholder=" " id="password"> <label for="password">Введите пароль</label></div>
-    <button>Войти</button></form>
+    <button>Войти</button>
+</form>
 </body>
 </html>
