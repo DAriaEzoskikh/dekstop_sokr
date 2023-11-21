@@ -4,41 +4,92 @@
     font-family: 'Montserrat';
 }
 
-a {
-    text-decoration: none;
-
-    transition: color 0.3s ease-in-out;
+a{
+text-decoration: none;
+transition: color 0.3s ease-in-out;
 }
 
-.nav {
-    width: 400px;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin: 50px auto 0px;
+.nav{
+width: 400px;
+display: flex;
+justify-content: center;
+gap: 25px;
+margin: 50px auto 0px;
 }
 
-a:hover {
-    color: #0091ff;
+a:hover{
+color: #0062ff;
 }
 
-form {
-    width: 400px;
-    display: flex;
-    justify-content: center;
-    margin: 50px auto;
-    background-color: #5387f0;
+.logout{
+width: 400px;
+display: flex;
+justify-content: center;
+margin: 50px auto;
 }
 
-button {
-    width: 150px;
-    margin: 15px auto;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 3px;
-    background-color: #24509A;
-    box-shadow: 0 2px 10px rgba(255, 0, 130, 0.5);
-    color: white;
-    cursor: pointer;
+button{
+width:150px;
+margin: 15px auto;
+padding: 10px 20px;
+font-size: 1rem;
+border: none;
+border-radius: 15px;
+background-color: #009dff;
+box-shadow: 0 2px 10px rgba(0, 140, 255, 0.5);
+color: white;
+cursor: pointer;
+}
+
+table{
+width: 1250px;
+margin: 0 auto;
+background: #5d3865;
+border-collapse: collapse;
+border: 2px solid white;
+text-align: center;
+color: white;
+}
+
+th{
+background: #5d3865;
+}
+
+tr{
+background: #8b5697;
+}
+
+tr:nth-child(2n+1){
+background: #b06cc0;
+}
+
+table a {
+color: white;
+}
+
+.button{
+display: flex;
+margin-left: 135px;
+gap: 20px;
+}
+
+.th{
+height: 70px;
+color: white;
+}
+
+input, select{
+padding: 5px 10px;
+}
+
+.update_form{
+width: 400px;
+gap: 20px;
+display: flex;
+flex-direction: column;
+margin: 50px auto;
+}
+
+.none{
+display: none;
 }

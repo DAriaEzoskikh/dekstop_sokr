@@ -4,17 +4,11 @@
     font-family: 'Montserrat';
 }
 
-a{
-text-decoration: none;
-
-transition: color 0.3s ease-in-out;
-}
-
 .nav{
-width: 700px;
+width: 400px;
 display: flex;
 justify-content: center;
-gap: 20px;
+gap: 25px;
 margin: 50px auto 0px;
 }
 
@@ -22,26 +16,28 @@ a:hover{
 color: #0062ff;
 }
 
+a{
+text-decoration: none;
+transition: color 0.3s ease-in-out;
+}
+
 form{
     display: flex;
     flex-direction: column;
     width: 400px;
-    gap: 20px;
+    gap: 30px;
     box-shadow: -1px 3px 10px #DCDCDC;
     margin: 50px auto;
     padding: 35px 100px 70px;
     border-radius: 10px;
-}
-
-h2{
- text-align: center;
+    text-align: center;
 }
 
 .input{
  position: relative;
- }
+}
 
-label{
+.label{
     position: absolute;
     left: 0;
     transform-origin: 0 0;
@@ -50,7 +46,7 @@ label{
     opacity: 0.75;
 }
 
-input{
+.input_link{
 padding: 7px;
 font-size: 1rem;
 width: 380px;
@@ -60,16 +56,16 @@ outline: none;
 transition: transform 0.3s ease-in-out;
 }
 
-input:focus + label, input:not(:placeholder-shown)+label{
-    transform: translateY(-1em) scale(0.8);
-    opacity: 0.5;
+.input_link:focus + .label, .input_link:not(:placeholder-shown)+label{
+transform: translateY(-1em) scale(0.8);
+opacity: 0.5;
 }
 
-input:focus{
+.input_link:focus{
 border-bottom: 1px solid #0062ff;
 }
 
-button{
+input[type='submit']{
 margin: 15px;
 padding: 8px;
 font-size: 1rem;

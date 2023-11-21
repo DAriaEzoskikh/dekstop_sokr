@@ -5,10 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link type="text/css" href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" />
+<link type="text/css" href="{{url_for('static', filename='css/index.css')}}" rel="stylesheet" />
 
     <title>{{title}}</title>
-    <link src="static/css/style.css" rel="stylesheet">
+    <link src="static/css/index.css" rel="stylesheet">
 </head>
 <body>
 <div class="nav">
@@ -16,13 +16,34 @@
         <a href="{{i.url}}">{{i.name}}</a>
     {%endfor%}
 </div>
-<form action="/check" method="POST">
-    <h2>Введите ссылку</h2>
-    <div class="input">
-    <input name="login" type="text" placeholder=" " id="login"> <label for="login">Введите логин</label></div>
-    <div class="input">
-    <input name="password" type="password" placeholder=" " id="password"> <label for="password">Введите пароль</label></div>
-    <button>Войти</button>
-</form>
+    <form action="/reduce" method="POST">
+<div class="input">
+            <input class="input_link" type="text" name="href" id="link" placeholder=" ">
+            <label class="label" for="link">Введите ссылку</label></div>
+        <div class="links">
+            <input type="radio" id="public" name="link" value="1" checked/>
+            <label for="public">Публичная</label>
+            {% if 'user_login' in session and session['user_login']!=None: %}
+            <input type="radio" id="general" name="link" value="2"  />
+            <label for="general">Общая</label>
+            <input type="radio" id="private" name="link" value="3"  />
+            <label for="private">Приватная</label>
+            {% else: %}
+            <input type="radio" id="general" name="link" value="2" disabled />
+            <label for="general">Общая</label>
+            <input type="radio" id="private" name="link" value="3" disabled />
+            <label for="private">Приватная</label>
+            {% endif %}
+        </div>
+        <div class="input">
+            <input class="input_link" id="psev" type="text" name="psev" placeholder=" ">
+            <label class="label" for="psev">Введите псевдоним</label></div>
+            <input type="submit" value="Сократить">
+        {% for msg in get_flashed_messages() %}
+            <a href="{{msg}}">{{msg}}</a>
+    {% endfor %}
+    </form>
+
+
 </body>
 </html>

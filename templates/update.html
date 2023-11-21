@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" href="{{url_for('static', filename='css/profile.css')}}" rel="stylesheet" />
+    <title>Document</title>
+    <link src="static/css/index.css" rel="stylesheet">
+</head>
+<body>
+<form class="update_form" action="/save" method="POST">
+    <input name="psev" value="{{href[1]}}">
+    <input class="none" name="id" value="{{href[0]}}">
+
+    <select name="select">
+        <option value="0">Выберете тип</option>
+        <option value="1">Публичная</option>
+        <option value="2">Общая</option>
+        <option value="3">Приватная</option>
+    </select>
+    <button name="save">ОК</button>
+</form>
+</body>
+</html>
