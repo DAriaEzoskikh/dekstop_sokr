@@ -38,12 +38,16 @@
         <div class="input">
             <input class="input_link" id="psev" type="text" name="psev" placeholder=" ">
             <label class="label" for="psev">Введите псевдоним</label></div>
-            <input type="submit" value="Сократить">
+            <input type="submit" value="Сократить" class="btn">
         {% for msg in get_flashed_messages() %}
             <a href="{{msg}}">{{msg}}</a>
     {% endfor %}
     </form>
-
+<script>
+    document.querySelector(".btn").addEventListener("click",function(){
+        window.location.reload()
+    })
+</script>
 
 </body>
 </html>

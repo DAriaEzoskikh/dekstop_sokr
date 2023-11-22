@@ -145,6 +145,7 @@ def short():
         if psev==None:
             user_address=request.form['psev']
         else:
+            flask.flash("Данный псевдоним уже занят, ссылка создана с случайным именем")
             user_address = hashlib.md5(request.form['href'].encode()).hexdigest()[:random.randint(8, 12)]
     else:
         user_address = hashlib.md5(request.form['href'].encode()).hexdigest()[:random.randint(8, 12)]
@@ -184,25 +185,28 @@ def short():
 def direct(hashref):
     connect = sqlite3.connect('db.db')
     cursor = connect.cursor()
+
     href = cursor.execute('''SELECT * FROM links INNER JOIN links_types ON links_types.id = links.link_type_id WHERE hreflink = ?''', (hashref, ) ).fetchone()
+    print(href)
     if href[7]=='Публичная':
-        cursor.execute('''UPDATE links SET count = ? WHERE id=?''',(href[5]+1, href[0]))
+        cursor.execute('''UPDATE links SET count =  count+1 WHERE id=?''',( href[0],))
         connect.commit()
         return redirect(f"{href[1]}")
     elif href[7]=='Общая':
         if 'user_id' in session and session['user_id']!=None:
-            cursor.execute('''UPDATE links SET count = ? WHERE id=?''', (href[5] + 1, href[0]))
+            cursor.execute('''UPDATE links SET count = count+1 WHERE id=?''', ( href[0],))
             connect.commit()
             return redirect(f"{href[1]}")
         else:
             session['href'] = href
             header = [{"name": "Авторизация", "url": "auth"},{"name": "Регистрация", "url": "reg"}]
-            return render_template('avto.html', title="Авторизация", header=header)
+            return render_template('auto.html', title="Авторизация", header=header)
 
-    elif href[7]=='Приватня':
+    elif href[7]=='Приватная':
         if 'user_id' in session and session['user_id'] != None:
+            print(111)
             if (href[3]==session['user_id']):
-                cursor.execute('''UPDATE links SET count = ? WHERE id=?''', (href[5] + 1, href[0]))
+                cursor.execute('''UPDATE links SET count = count+1 WHERE id=?''', ( href[0],))
                 connect.commit()
                 return redirect(f"{href[1]}")
             else:
